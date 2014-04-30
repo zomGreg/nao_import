@@ -1,0 +1,6 @@
+.idea/*
+nao.db
+data/game_list.txt
+*.pyc
+*.xml
+build/*
