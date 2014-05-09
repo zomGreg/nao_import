@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine, schema, types
+
 from sqlalchemy import MetaData,Column,Table,ForeignKey
 from sqlalchemy import Integer,String,Date
 import datetime
@@ -47,6 +48,7 @@ games=Table('games',metadata,
 
 class Games(object):
     pass
+
 
 def load_game(game_dict):
     connection=engine.connect()
