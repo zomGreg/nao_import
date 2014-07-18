@@ -6,7 +6,7 @@ from sqlalchemy import orm, func, select
 from sqlalchemy.sql import and_, or_, not_
 
 metadata=schema.MetaData()
-engine=create_engine('sqlite:///nao.db', echo=False)
+engine=create_engine('sqlite:///players.db', echo=False)
 metadata.bind=engine
 
 games=Table('games',metadata,
@@ -43,7 +43,7 @@ games=Table('games',metadata,
 )
 
 # Need this if you're going to create from scratch.
-#games.create()
+games.create()
 
 class Games(object):
     pass
