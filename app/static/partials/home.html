@@ -1,0 +1,238 @@
+            <div class="pageheader">
+                <h2><i class="fa fa-home"></i> Dashboard <span>{{dt | date:'medium'}}</span></h2>
+                <div class="breadcrumb-wrapper">
+                    <span class="label">You are here:</span>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Parachute</a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+
+			<div id="content">
+                <div class="row">
+
+                    <div class="col-lg-3">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-1">
+                                        <i class="fa fa-tasks fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-11 text-right">
+                                        <p class="announcement-heading">{{ active_server_count }}</p>
+                                        <p class="announcement-text">Running&nbsp;Servers</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer announcement-bottom">
+                                <div class="row">
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            <i class="fa fa-arrow-down red_text"></i> 23%
+                                        </span>
+                                        <br />vs. last week
+                                    </div>
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            4.34 mins
+                                        </span>
+                                        <br />avg launch
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-1">
+                                        <i class="fa fa-cloud fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-11 text-right">
+                                        <p class="announcement-heading">{{ cloud_account_count }}</p>
+                                        <p class="announcement-text">Active&nbsp;Accounts</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer announcement-bottom">
+                                <div class="row">
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            <i class="fa fa-arrow-down red_text"></i> 23%
+                                        </span>
+                                        <br />vs. last week
+                                    </div>
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            4.34 mins
+                                        </span>
+                                        <br />avg launch
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-1">
+                                        <i class="fa fa-archive fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-11 text-right">
+                                        <p class="announcement-heading">3.8 TB</p>
+                                        <p class="announcement-text">Volume&nbsp;Storage</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer announcement-bottom">
+                                <div class="row">
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            2.6 TB
+                                        </span>
+                                        <br />mounted
+                                    </div>
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            1.2 TB
+                                        </span>
+                                        <br />unmounted
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-1">
+                                        <i class="fa fa-dollar fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-11 text-right">
+                                        <p class="announcement-heading">$22,338</p>
+                                        <p class="announcement-text">Current&nbsp;Estimate</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer announcement-bottom">
+                                <div class="row">
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            <i class="fa fa-arrow-down red_text"></i> 23%
+                                        </span>
+                                        <br />vs. last week
+                                    </div>
+                                    <div class="col-xs-6 center">
+                                        <span class="announcement-bottom-text">
+                                            <i class="fa fa-arrow-up green_text"></i> 9%
+                                        </span>
+                                        <br />vs. last month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ng-cloak">
+
+                    <div class="col-lg-9">
+                        <div class="white">
+                            <h4>SERVER LAUNCHES</h4>
+                            <div class="loading"></div>
+                            <div id="morris-chart-area"></div>
+                            <h4>Top 10 Launchers</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Server Launches</th>
+                                            <th width="15"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="u in topUsers">
+                                            <td>{{ u.first_name }} {{ u.last_name }} <a href="mailto:{{ u.email_address }}"><small>&lt;{{ u.email_address }}></small></a></td>
+                                            <td>{{ u.count }}</td>
+                                            <td><i class="fa fa-arrow-circle-o-right"></i></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="white">
+                            <div class="loading"></div>
+                            <h4>Servers by Region</h4>
+                            <nvd3-pie-chart
+                                data="regionData"
+                                id="regions"
+                                x="xFunctionPie()"
+                                y="yFunction()"
+                                height="480"
+                                margin="{left:0,top:0,bottom:0,right:0}"
+                            showLegend="true">
+                                <svg height="250"></svg>
+                            </nvd3-pie-chart>
+                        </div>
+
+                        <br />
+
+                        <div class="white">
+                            <h4>Quick Stats</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td><b>First Launch</b></td>
+                                            <td>{{ (first_launch | date:'yyyy-MM-dd HH:mm:ss Z') || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Last Launch</b></td>
+                                            <td>{{ (last_launch | date:'yyyy-MM-dd HH:mm:ss Z') || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Cloud Accounts</b></td>
+                                            <td>{{ (cloud_account_count | number) || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Unique Server Owners</b></td>
+                                            <td>{{ unique_server_owners | number }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Internal Launches</b></td>
+                                            <td>{{ (internal_launches | number) || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>External Launches</b></td>
+                                            <td>{{ (external_launches | number) || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Active Users</b></td>
+                                            <td>{{ (active_users_count | number) || 'Loading...' }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Total Companies</b></td>
+                                            <td>{{ (total_companies | number) || 'Loading...' }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+			</div>

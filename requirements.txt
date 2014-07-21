@@ -1,0 +1,6 @@
+MySQL-python
+Flask
+Flask-RESTful
+SQLAlchemy
+gunicorn
+simplejson
