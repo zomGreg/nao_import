@@ -1,0 +1,23 @@
+		<div class="row">
+          <div class="col-lg-12">
+            <h1>Server <small>#{{ server_id }}</small></h1>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-tasks"></i> Servers</li>
+              <li class="active"><a href="/resources/server/{{ server_id }}"><i class="fa fa-tasks"></i> ID #{{ server_id }}</a></li>
+            </ol>
+          </div>
+        </div><!-- /.row -->
+        
+        <span ng-show="server_data[0].server_state == 'TERMINATED'">
+        	<div class="alert alert-danger">
+        		<b>NOTICE:</b> This is a Terminated Server.
+        	</div>
+        </span>
+        
+	<h1>Server ID# {{ server_id }}</h1>
+	<pre>{{ server_data | json }}</pre>
+	<b>Server Name:</b> {{ server_data[0].server_name }}<br />
+	<b>Server Launch:</b> {{ server_data[0].server_creation_date | date:'medium' }}<br />
+	<span ng-show="server_data[0].server_termination_date != null"><b>Server Termination:</b> {{ server_data[0].server_termination_date | date:'medium' }}<br /></span>
+	<b>Server Cost (Lifetime):</b> ${{ (server_data[0].server_pricing_hourly*server_data[0].server_hours_online) | number:2 }}<br />
+	<b>Server State:</b> {{ server_data[0].server_state }}<br />

@@ -1,0 +1,16 @@
+	<h1>Clouds</h1>
+
+	<table class="table">
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Endpoint</th>
+			<th>Delegate</th>
+		</tr>
+		<tr ng-repeat="c in clouds">
+			<td>{{ c.cloud_id }}</td>
+			<td>{{ c.name }}</td>
+			<td>{{ c.endpoint }}</td>
+			<td>{{ c.delegate }}</td>
+		</tr>
+	</table>

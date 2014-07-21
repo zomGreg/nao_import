@@ -1,0 +1,96 @@
+<h1>Report</h1>
+
+Total Users: {{ active_users }} <br />
+Total Accounts: {{ active_accounts }}<br />
+Total Owned Servers: {{ owned_servers }}<br />
+
+Unique Server Owners: {{ unique_server_owners }}<br />
+Earliest Launch: {{ earliest_launch }} <br />
+Latest Launch: {{ latest_launch }}<br />
+Internal Launch Events: {{ internal_launch_events }}<br />
+External Launch Events: {{ external_launch_events }}<br />
+
+<h2>Server Actions by Month</h2>
+<pre>{{ server_action_by_month | json }}</pre>
+
+<div class="table-responsive">
+    <h3>Platform, Running Servers</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Platform</th>
+            <th>Running Servers</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="s in running_server_platform">
+            <td>{{ s.platform }}</td>
+            <td>{{ s.count }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <h3>Top 10 Users, Server Launches</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Server Launches</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="u in users_launching_servers">
+            <td>{{ u.email_address }}</td>
+            <td>{{ u.server_count }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <h3>10 Most Frequently Used Machine Images</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Image Name</th>
+            <th>Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="m in popular_machine_images">
+            <td>{{ m.machine_image_name }}</td>
+            <td>{{ m.count }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-responsive">
+    <h3>Server Count by Region</h3>
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Region Name</th>
+            <th>Count</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="s in server_count_by_region">
+            <td>{{ s.region_name }}</td>
+            <td>{{ s.count }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!--
+<h3>2012 Server Launches</h3>
+<img src="/static/images/2012.png" alt="Test">
+<h3>2013 Server Launches</h3>
+<img src="/static/images/2013.png" alt="Test">
+<h3>2014 Server Launches</h3>
+<img src="/static/images/2014.png" alt="Test">
+<h3>All Time</h3>
+<img src="/static/images/all_time.png" alt="Test">
+-->
