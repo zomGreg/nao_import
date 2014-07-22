@@ -18,3 +18,5 @@ games = Table('games', metadata, autoload=True)
 def index():
     return "hello, world"
     #return render_template('index.html')
+
+import games
