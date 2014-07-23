@@ -15,4 +15,15 @@ class Games(run.restful.Resource):
         run.session.close()
         return jsonify(results=q)
 
-run.api.add_resource(Games, '/api/games')
+run.api.add_resource(Games, '/api/total_games')
+
+class MaxPoints(run.restful.Resource):
+    """
+    Games
+    """
+    def get(self):
+        q = run.session.query(func.max(run.nethack_games.c.points).label('points')).all()
+        run.session.close()
+        return jsonify(results=q)
+
+run.api.add_resource(MaxPoints, '/api/max_points')
