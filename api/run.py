@@ -12,7 +12,7 @@ metadata = schema.MetaData()
 engine=create_engine('sqlite:////Users/gmoselle/projects/ascension_kit/players.db', echo=False)
 metadata.bind = engine
 session = sessionmaker(bind=engine)()
-games = Table('games', metadata, autoload=True)
+nethack_games = Table('games', metadata, autoload=True)
 
 @app.route('/')
 def index():
